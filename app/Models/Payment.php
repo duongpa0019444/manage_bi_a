@@ -3,14 +3,24 @@
     class payment extends Model {
         public function getPriceDate(){
             $sql = "SELECT 
-                        DAYOFWEEK(s.time_end) AS weekday, 
-                        DATE_FORMAT(s.time_end, '%Y-%m-%d') AS date,  
-                        SUM(p.total_amount) AS price
-                    FROM sessions s 
-                    JOIN payments p ON s.id = p.session_id
-                    WHERE s.time_end >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)
-                    GROUP BY weekday, date
-                    ORDER BY FIELD(weekday, 2, 3, 4, 5, 6, 7, 1); ";
+                        w.weekday,
+                        w.label,
+                        IFNULL(SUM(p.total_amount), 0) AS price,
+                        DATE_FORMAT(s.time_end, '%Y-%m-%d') AS date
+                    FROM (
+                        SELECT 2 AS weekday, 'Thứ 2' AS label UNION ALL
+                        SELECT 3, 'Thứ 3' UNION ALL
+                        SELECT 4, 'Thứ 4' UNION ALL
+                        SELECT 5, 'Thứ 5' UNION ALL
+                        SELECT 6, 'Thứ 6' UNION ALL
+                        SELECT 7, 'Thứ 7' UNION ALL
+                        SELECT 1, 'Chủ nhật'
+                    ) w
+                    LEFT JOIN sessions s ON DAYOFWEEK(s.time_end) = w.weekday 
+                        AND s.time_end >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)
+                    LEFT JOIN payments p ON s.id = p.session_id
+                    GROUP BY w.weekday, w.label
+                    ORDER BY FIELD(w.weekday, 2, 3, 4, 5, 6, 7, 1);";
                     
             return $this->query($sql)->fetchAll();
         }

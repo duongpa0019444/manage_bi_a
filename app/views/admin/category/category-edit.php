@@ -16,13 +16,13 @@ use models\Category;
                          
 
                          <div class="col-xl-12 col-lg-12 ">
-                              <form class="card" method="post" enctype="multipart/form-data">
+                              <form class="card" method="post" action="<?= BASE_URL ?>/admin/category/update/<?= $category['id'] ?>" enctype="multipart/form-data">
                                    <div class="card-header">
                                         <h4 class="card-title">Thêm hình ảnh</h4>
                                    </div>
                                    <div class="card-body">
                                         <!-- File Upload -->
-                                        <div action="" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
+                                        <div action="<?= BASE_URL ?>/admin/category/update" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
                                              <div class="fallback">
                                                   <input name="hinh_anh" type="file" multiple />
                                              </div>
@@ -43,7 +43,8 @@ use models\Category;
                                                   <div>
                                                        <div class="mb-3">
                                                             <label for="product-name" class="form-label">Tên danh mục</label>
-                                                            <input type="text" id="ten_danh_muc" class="form-control" value="<?= $categories['ten_danh_muc']?>"  name="ten_danh_muc">
+                                                            <input type="text" id="ten_danh_muc" class="form-control" value="<?= $category['name'] ?>" name="name">
+
                                                        </div>
                                                   </div>
                                              </div>

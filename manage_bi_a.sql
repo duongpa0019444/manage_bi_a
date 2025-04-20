@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 08, 2025 lúc 09:42 AM
+-- Thời gian đã tạo: Th4 19, 2025 lúc 04:15 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -73,7 +73,21 @@ INSERT INTO `orders_menu` (`id`, `session_id`, `product_id`, `quantity`) VALUES
 (138, 85, 4, 5),
 (140, 86, 4, 5),
 (143, 86, 8, 4),
-(144, 86, 7, 2);
+(144, 86, 7, 2),
+(145, 87, 4, 3),
+(146, 87, 3, 2),
+(147, 87, 8, 1),
+(148, 88, 3, 1),
+(149, 88, 7, 1),
+(150, 88, 6, 4),
+(151, 88, 1, 3),
+(152, 88, 2, 2),
+(153, 88, 11, 2),
+(155, 90, 4, 3),
+(156, 90, 2, 2),
+(157, 89, 4, 2),
+(158, 89, 8, 2),
+(159, 89, 11, 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +115,11 @@ INSERT INTO `payments` (`id`, `session_id`, `total_food_price`, `total_play_time
 (53, 83, 60000.00, 0, 60000.00),
 (54, 84, 256000.00, 0, 256000.00),
 (55, 85, 60000.00, 61, 121000.00),
-(56, 86, 152000.00, 1089, 1241000.00);
+(56, 86, 152000.00, 1089, 1241000.00),
+(57, 87, 79000.00, 0, 79000.00),
+(58, 88, 255000.00, 0, 255000.00),
+(59, 90, 66000.00, 0, 66000.00),
+(60, 89, 140000.00, 105, 245000.00);
 
 -- --------------------------------------------------------
 
@@ -111,6 +129,7 @@ INSERT INTO `payments` (`id`, `session_id`, `total_food_price`, `total_play_time
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
+  `product_code` varchar(1000) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0,
@@ -122,18 +141,18 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `quantity`, `image`, `category_id`) VALUES
-(1, 'Nước khoáng', 10000.00, 100, '', 1),
-(2, 'Coca-Cola', 15000.00, 80, '', 1),
-(3, 'Pepsi', 15000.00, 90, '', 1),
-(4, 'Trà xanh C2', 12000.00, 85, '', 1),
-(5, 'Sting dâu', 12000.00, 70, '', 1),
-(6, 'Bia Heineken', 25000.00, 60, '', 1),
-(7, 'Nước cam', 20000.00, 75, '', 1),
-(8, 'Sữa đậu nành', 13000.00, 95, '', 1),
-(9, 'Nước tăng lực', 18000.00, 65, '', 1),
-(10, 'Trà sữa Matcha', 22000.00, 50, '', 1),
-(11, 'Dưa hấu', 30000.00, 100, '', 2);
+INSERT INTO `products` (`id`, `product_code`, `name`, `price`, `quantity`, `image`, `category_id`) VALUES
+(1, '', 'Nước khoáng', 10000.00, 100, 'uploads/products/67fe23f2676b2_nuockhonag3.jpg', 1),
+(2, 'MA002', 'Coca-Cola', 15000.00, 80, 'uploads/products/67fe222f23d2e_COCA COLA.webp', 1),
+(3, '', 'Pepsi', 15000.00, 90, 'uploads/products/67fe22e51620e_pepsi.webp', 1),
+(4, '', 'Trà xanh C2', 12000.00, 85, 'uploads/products/67fe241381853_c222.webp', 1),
+(5, '', 'Sting dâu', 12000.00, 70, 'uploads/products/67fe22ffc1c43_sting.webp', 1),
+(6, '', 'Bia Heineken', 25000.00, 60, 'uploads/products/67fe23296553b_bia heliken.webp', 1),
+(7, '', 'Nước cam', 20000.00, 75, 'uploads/products/67fe241e822c9_MM Splash-desktop.webp', 1),
+(8, '', 'Sữa đậu nành', 13000.00, 95, 'uploads/products/67fe2340126ab_sữa đậu nành.webp', 1),
+(9, '', 'Nước tăng lực', 18000.00, 65, 'uploads/products/67fe234c1fecf_nuoc_tang_luc.webp', 1),
+(10, '', 'Trà sữa Matcha', 22000.00, 50, 'uploads/products/67fe23578b4b0_tra_sua.jpg', 1),
+(11, '', 'Dưa hấu', 30000.00, 100, 'uploads/products/67fe2369d1e1f_dưa hấu.webp', 2);
 
 -- --------------------------------------------------------
 
@@ -162,7 +181,11 @@ INSERT INTO `sessions` (`id`, `user_id`, `table_id`, `time_start`, `time_end`, `
 (83, 1, 1, '2025-04-03 08:03:45', '2025-04-03 08:03:50', 'Đã kết thúc'),
 (84, 1, 1, '2025-04-04 17:30:22', '2025-04-04 17:30:31', 'Đã kết thúc'),
 (85, 1, 1, '2025-04-04 16:36:57', '2025-04-04 17:38:46', 'Đã kết thúc'),
-(86, 1, 1, '2025-04-05 13:14:17', '2025-04-07 07:23:40', 'Đã kết thúc');
+(86, 1, 1, '2025-04-05 13:14:17', '2025-04-07 07:23:40', 'Đã kết thúc'),
+(87, 1, 1, '2025-04-10 07:28:41', '2025-04-10 07:29:22', 'Đã kết thúc'),
+(88, 1, 3, '2025-04-10 07:29:45', '2025-04-10 07:29:56', 'Đã kết thúc'),
+(89, 1, 1, '2025-04-10 07:59:02', '2025-04-15 09:44:52', 'Đã kết thúc'),
+(90, 1, 2, '2025-04-10 07:59:09', '2025-04-10 07:59:42', 'Đã kết thúc');
 
 -- --------------------------------------------------------
 
@@ -206,7 +229,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `email`, `password`) VALUES
-(1, 'tungduong', 'duongdtpa00194@gmail.com', '$2y$10$SJYRUhXstFQXFsLrlAmjCeBS3IRuD0A4XKuXeZeRbQvC5d0q3aWEO');
+(1, 'tungduong', 'duongdtpa00194@gmail.com', '$2y$10$SJYRUhXstFQXFsLrlAmjCeBS3IRuD0A4XKuXeZeRbQvC5d0q3aWEO'),
+(2, 'tungduong2', 'duongdtpa00124@gmail.com', '$2y$10$yrrP2EVzDRdBTkcUU3FuxeevvPTfTk11MhWzf.s1680AMXdpiL6G.');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -268,31 +292,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `categorys`
 --
 ALTER TABLE `categorys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `orders_menu`
 --
 ALTER TABLE `orders_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT cho bảng `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT cho bảng `tables`
@@ -304,7 +328,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

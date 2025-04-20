@@ -22,13 +22,19 @@ $router->post('/admin/order/delete', 'Admin\SetupController@delete');
 //Quản lý sản phẩm
 $router->get('/admin/product/list', 'Admin\ProductController@list');
 $router->get('/admin/product/create', 'Admin\ProductController@create');
-$router->get('/admin/product/edit', 'Admin\ProductController@edit');
+$router->post('/admin/product/store', 'Admin\ProductController@store');
+$router->get('/admin/product/edit/:id', 'Admin\ProductController@edit');
+$router->post('/admin/product/update/:id', 'Admin\ProductController@update');
+$router->get('/admin/product/delete/:id', 'Admin\ProductController@delete');
 
 
 //Quản lý danh mục
 $router->get('/admin/category/list', 'Admin\CategoryController@list');
 $router->get('/admin/category/create', 'Admin\CategoryController@create');
-$router->get('/admin/category/edit', 'Admin\CategoryController@edit');
+$router->post('/admin/category/store', 'Admin\CategoryController@store');
+$router->get('/admin/category/edit/:id', 'Admin\CategoryController@edit');
+$router->post('/admin/category/update/:id', 'Admin\CategoryController@update');
+$router->get('/admin/category/delete/:id', 'Admin\CategoryController@delete');
 
 
 //Quản lý đơn hàng

@@ -1,7 +1,7 @@
 RewriteEngine On
 Options +Indexes
 # Cho phép truy cập trực tiếp vào thư mục uploads
-RewriteCond %{REQUEST_URI} ^/php2/mvc/admin/uploads/ [NC]
+RewriteCond %{REQUEST_URI} ^/manage_bi_a_2/admin/uploads/ [NC]
 RewriteRule .* - [L]
 # Nếu URL chứa "/admin/", điều hướng đến "admin/index.php"
 RewriteRule ^admin/(.*)$ admin/index.php [L]

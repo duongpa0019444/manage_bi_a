@@ -14,7 +14,7 @@
                                    <div class="card-header d-flex justify-content-between align-items-center gap-1">
                                         <h4 class="card-title flex-grow-1">Danh sách sản phẩm</h4>
 
-                                        <a href="<?=BASE_URL?>/admin/product-add" class="btn btn-sm btn-primary">
+                                        <a href="<?=BASE_URL?>/admin/product/create" class="btn btn-sm btn-primary">
                                              Thêm sản phẩm
                                         </a>
                                         <?=$mess??""?>
@@ -37,126 +37,50 @@
                                                             <th>Thao tác</th>
                                                        </tr>
                                                   </thead>
-                                                  <tbody>
-                                                       
-                                                            <tr>
-                                                                 <td>
-                                                                      <div class="form-check ms-1">
-                                                                           <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                                           <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                                      </div>
-                                                                 </td>
-                                                                 <td>
-                                                                      <div class="d-flex align-items-center gap-2">
-                                                                           <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                                                                                <img src="<?=BASE_URL?>/" alt="" class="avatar-md">
-                                                                           </div>
-                                                                           <div>
-                                                                                <a href="#!" class="text-dark fw-medium fs-15">Tên sản phẩm</a>
-                                                                                <p class="text-muted mb-0 mt-1 fs-13"><span>Mã : </span> 1</p>
-                                                                                 <p class="text-muted mb-0 mt-1 fs-13"><span>Tên danh mục</span></p>
-                                                                           </div>
-                                                                      </div>
+                                                  <tbody>   
+                                                  <?php foreach ($Products as $Product): ?>
+                                                  <tr>
+                                                       <td>
+                                                            <div class="form-check ms-1">
+                                                                 <input type="checkbox" class="form-check-input" id="customCheck<?= htmlspecialchars($Product['id']) ?>">
+                                                                 <label class="form-check-label" for="customCheck<?= htmlspecialchars($Product['id']) ?>"> </label>
+                                                            </div>
+                                                       </td>
+                                                       <td>
+                                                            <div class="d-flex align-items-center gap-2">
+                                                                 <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
+                                                                      <!-- Kiểm tra nếu có hình ảnh và hiển thị -->
+                                                                      <?php if (!empty($Product['image'])): ?>
+                                                                           <img src="<?= BASE_URL.'/admin/'.$Product['image'] ?>" alt="Hình ảnh" class="img-thumbnail" style="width: 95px; height: 50px;">
+                                                                      <?php else: ?>
+                                                                           <span>Không có hình</span>
+                                                                      <?php endif; ?>
+                                                                 </div>
 
-                                                                 </td>
-                                                                 <td>300.000đ</td>
-                                                                 <td>100.000.000</td>
-                                                                 <td>
-                                                                      <div class="d-flex gap-2">
-                                                                           <a href="<?=BASE_URL?>/admin/product/edit" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                           <a href="<?=BASE_URL?>/admin/product/delete" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                      </div>
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>
-                                                                      <div class="form-check ms-1">
-                                                                           <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                                           <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                                      </div>
-                                                                 </td>
-                                                                 <td>
-                                                                      <div class="d-flex align-items-center gap-2">
-                                                                           <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                                                                                <img src="<?=BASE_URL?>/" alt="" class="avatar-md">
-                                                                           </div>
-                                                                           <div>
-                                                                                <a href="#!" class="text-dark fw-medium fs-15">Tên sản phẩm</a>
-                                                                                <p class="text-muted mb-0 mt-1 fs-13"><span>Mã : </span> 1</p>
-                                                                                 <p class="text-muted mb-0 mt-1 fs-13"><span>Tên danh mục</span></p>
-                                                                           </div>
-                                                                      </div>
+                                                                 <div>
+                                                                      <a href="#!" class="text-dark fw-medium fs-15"><?= htmlspecialchars($Product['name']) ?></a>
+                                                                      <p class="text-muted mb-0 mt-1 fs-13"><span>Mã: </span><?= htmlspecialchars($Product['product_code']) ?></p>
+                                                                      <p class="text-muted mb-0 mt-1 fs-13"><span>Danh mục: </span><?= htmlspecialchars($Product['category_id']) ?></p>
+                                                                 </div>
+                                                            </div>
+                                                       </td>
 
-                                                                 </td>
-                                                                 <td>300.000đ</td>
-                                                                 <td>100.000.000</td>
-                                                                 <td>
-                                                                      <div class="d-flex gap-2">
-                                                                           <a href="<?=BASE_URL?>/admin/product/edit" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                           <a href="<?=BASE_URL?>/admin/product/delete" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                      </div>
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>
-                                                                      <div class="form-check ms-1">
-                                                                           <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                                           <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                                      </div>
-                                                                 </td>
-                                                                 <td>
-                                                                      <div class="d-flex align-items-center gap-2">
-                                                                           <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                                                                                <img src="<?=BASE_URL?>/" alt="" class="avatar-md">
-                                                                           </div>
-                                                                           <div>
-                                                                                <a href="#!" class="text-dark fw-medium fs-15">Tên sản phẩm</a>
-                                                                                <p class="text-muted mb-0 mt-1 fs-13"><span>Mã : </span> 1</p>
-                                                                                 <p class="text-muted mb-0 mt-1 fs-13"><span>Tên danh mục</span></p>
-                                                                           </div>
-                                                                      </div>
-
-                                                                 </td>
-                                                                 <td>300.000đ</td>
-                                                                 <td>100.000.000</td>
-                                                                 <td>
-                                                                      <div class="d-flex gap-2">
-                                                                           <a href="<?=BASE_URL?>/admin/product/edit" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                           <a href="<?=BASE_URL?>/admin/product/delete" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                      </div>
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>
-                                                                      <div class="form-check ms-1">
-                                                                           <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                                           <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                                      </div>
-                                                                 </td>
-                                                                 <td>
-                                                                      <div class="d-flex align-items-center gap-2">
-                                                                           <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                                                                                <img src="<?=BASE_URL?>/" alt="" class="avatar-md">
-                                                                           </div>
-                                                                           <div>
-                                                                                <a href="#!" class="text-dark fw-medium fs-15">Tên sản phẩm</a>
-                                                                                <p class="text-muted mb-0 mt-1 fs-13"><span>Mã : </span> 1</p>
-                                                                                 <p class="text-muted mb-0 mt-1 fs-13"><span>Tên danh mục</span></p>
-                                                                           </div>
-                                                                      </div>
-
-                                                                 </td>
-                                                                 <td>300.000đ</td>
-                                                                 <td>100.000.000</td>
-                                                                 <td>
-                                                                      <div class="d-flex gap-2">
-                                                                           <a href="<?=BASE_URL?>/admin/product/edit" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                           <a href="<?=BASE_URL?>/admin/product/delete" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                      </div>
-                                                                 </td>
-                                                            </tr>
-                                                       
+                                                       <td><?= number_format($Product['price']) ?>đ</td>
+                                                       <td><?= number_format($Product['quantity']) ?></td>
+                                                       <td>
+                                                            <div class="d-flex gap-2">
+                                                                 <a href="<?= BASE_URL ?>/admin/product/edit/<?= htmlspecialchars($Product['id']) ?>" class="btn btn-soft-primary btn-sm">
+                                                                      <iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon>
+                                                                 </a>
+                                                                 <a href="<?= BASE_URL ?>/admin/product/delete/<?= htmlspecialchars($Product['id']) ?>" class="btn btn-soft-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                                      <iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon>
+                                                                 </a>
+                                                            </div>
+                                                       </td>
+                                                  </tr>
+                                                  <?php endforeach; ?>
                                                   </tbody>
+
                                              </table>
                                         </div>
                                         <!-- end table-responsive -->

@@ -66,7 +66,7 @@
                                                                  <td>
                                                                       <div class="d-flex align-items-center gap-2">
                                                                            <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                                                                                <img src="<?= BASE_URL ?>/<?=$product['hinh_anh']?>" alt="" class="avatar-md">
+                                                                                <img src="<?= BASE_URL ?>/admin/<?=$product['hinh_anh']?>" alt="" class="avatar-md">
                                                                            </div>
                                                                            <div>
                                                                                 <a href="#!" class="text-dark fw-medium fs-15"><?=$product['ten_san_pham']?></a>
@@ -112,44 +112,7 @@
                          </div>
                     </div>
 
-                    <div class="card">
-                         <div class="card-header">
-                              <h4 class="card-title">Thông Tin Người Nhận</h4>
-                         </div>
-                         <div class="card-body">
-                              <div class="d-flex justify-content-between mt-3">
-                                   <h5 class="">Họ và Tên</h5>
-
-                              </div>
-                              <p class="mb-1"><?=$information['ho_va_ten']?></p>
-
-                              <div class="d-flex justify-content-between mt-3">
-                                   <h5 class="">Số điện thoại:</h5>
-
-                              </div>
-                              <p class="mb-1">(723) 732-760-5760</p>
-
-               
-
-                              <div class="d-flex justify-content-between mt-3">
-                                   <h5 class="">Địa Chỉ:</h5>
-
-                              </div>
-
-                              <div>
-                                   <p class="mb-1"><?=$information['chi_tiet_dia_chi']?></p>
-
-                              </div>
-
-                              <div class="d-flex justify-content-between mt-3">
-                                   <h5 class="">Ghi chú:</h5>
-
-                              </div>
-
-                              <p class="mb-1"><?=$information['ghi_chu']?></p>
-                         </div>
-                    </div>
-
+                    
                </div>
           </div>
      </div>

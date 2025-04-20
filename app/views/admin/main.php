@@ -7,7 +7,7 @@
 <head>
     <!-- Title Meta -->
     <meta charset="utf-8" />
-    <title><?=$title??""?></title>
+    <title><?= $title ?? "" ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fully responsive premium admin dashboard template" />
     <meta name="author" content="Techzaa" />
@@ -30,7 +30,7 @@
     <!-- Theme Config js (Require in all Page) -->
     <script src="<?= BASE_URL ?>/assets/js/config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Thư viện SweetAlert2 -->
-    
+
 </head>
 
 <body>
@@ -52,7 +52,7 @@
 
                         <!-- Menu Toggle Button -->
                         <div class="topbar-item">
-                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Chào mừng ADMIN <?=$_SESSION['user_name']?>!</h4>
+                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Chào mừng ADMIN <?= $_SESSION['user_name'] ?>!</h4>
                         </div>
                     </div>
 
@@ -207,12 +207,12 @@
         <div class="main-nav">
             <!-- Sidebar Logo -->
             <div class="logo-box">
-                <a href="<?=BASE_URL?>/admin" class="logo-dark">
+                <a href="<?= BASE_URL ?>/admin" class="logo-dark">
                     <img src="<?= BASE_URL ?>/assets/images/logo-sm.png" class="logo-sm" alt="logo sm">
                     <img src="<?= BASE_URL ?>/assets/images/logo-dark.png" class="logo-lg" alt="logo dark">
                 </a>
 
-                <a href="<?=BASE_URL?>/admin" class="logo-light">
+                <a href="<?= BASE_URL ?>/admin" class="logo-light">
                     <img src="<?= BASE_URL ?>/assets/images/logo-sm.png" class="logo-sm" alt="logo sm">
                     <img src="<?= BASE_URL ?>/assets/images/logo-light.png" class="logo-lg" alt="logo light">
                 </a>
@@ -247,12 +247,12 @@
                         <div class="collapse" id="sidebarProducts">
                             <ul class="nav sub-navbar-nav">
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/product/list">Danh sách</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/product/list">Danh sách</a>
                                 </li>
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/product/create">Thêm sản phẩm</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/product/create">Thêm sản phẩm</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </li>
@@ -267,12 +267,12 @@
                         <div class="collapse" id="sidebarCategory">
                             <ul class="nav sub-navbar-nav">
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/category/list">Dánh sách</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/category/list">Dánh sách</a>
                                 </li>
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/category/create">Thêm danh mục</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/category/create">Thêm danh mục</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </li>
@@ -287,7 +287,7 @@
                         <div class="collapse" id="order">
                             <ul class="nav sub-navbar-nav">
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/order/list">Lịch sử đơn hàng</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/order/list">Lịch sử đơn hàng</a>
                                 </li>
 
                             </ul>
@@ -304,34 +304,34 @@
                         <div class="collapse" id="user">
                             <ul class="nav sub-navbar-nav">
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/user/list">Danh sách</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/user/list">Danh sách</a>
                                 </li>
 
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="<?=BASE_URL?>/admin/user/create">Thêm người quản trị</a>
+                                    <a class="sub-nav-link" href="<?= BASE_URL ?>/admin/user/create">Thêm người quản trị</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=BASE_URL?>/admin/statistical">
+                        <a class="nav-link" href="<?= BASE_URL ?>/admin/statistical">
                             <span class="nav-icon">
                                 <iconify-icon icon="line-md:document-report"></iconify-icon>
                             </span>
                             <span class="nav-text"> Thống kê </span>
                         </a>
-                        
+
                     </li>
 
                     <li class="nav-item mt-3">
-                        <a class="nav-link" href="<?=BASE_URL?>/admin/logout">
+                        <a class="nav-link" href="<?= BASE_URL ?>/admin/logout">
                             <span class="nav-icon">
                                 <iconify-icon icon="line-md:log-out"></iconify-icon>
                             </span>
                             <span class="nav-text"> Đăng xuất </span>
                         </a>
-                        
+
                     </li>
 
 
@@ -344,13 +344,27 @@
 
         <?php
         require_once __DIR__ . $view . ".php";
-           
+
         ?>
 
+        <!-- END Wrapper -->
+        <!-- ========== Footer Start ========== -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> &copy; Nhóm 3 <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a
+                            href="#" class="fw-bold footer-text" target="_blank">BI A CLUB</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </div>
-    <!-- END Wrapper -->
 
+    <!-- ========== Footer End ========== -->
     <!-- Vendor Javascript (Require in all Page) -->
     <script src="<?= BASE_URL ?>/assets/js/vendor.js"></script>
 
@@ -365,8 +379,8 @@
     <!-- Dashboard Js -->
     <script src="<?= BASE_URL ?>/assets/js/pages/dashboard.js"></script>
 
-        <!-- Following Apex Area Chart Demo Dummy Data Link -->
-        <script src="../../../apexcharts.com/samples/assets/stock-prices.js"></script>
+    <!-- Following Apex Area Chart Demo Dummy Data Link -->
+    <script src="../../../apexcharts.com/samples/assets/stock-prices.js"></script>
     <script src="../../../apexcharts.com/samples/assets/series1000.js"></script>
     <script src="../../../apexcharts.com/samples/assets/github-data.js"></script>
     <script src="../../../apexcharts.com/samples/assets/irregular-data-series.js"></script>
@@ -377,4 +391,5 @@
 
 
 </body>
+
 </html>

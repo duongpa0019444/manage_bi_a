@@ -53,7 +53,7 @@
         $dataDaily[] = $priceDaily['price'];
     }
     $jsonDataDaily = json_encode($dataDaily); 
-
+    
     $dataMonth = [];
     foreach($totalPriceMonth as $priceMoth){
         $dataMonth[] = $priceMoth['price'];

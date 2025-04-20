@@ -34,7 +34,7 @@
                     <?php foreach ($products as $product): ?>
                         <div class="col-md-6 col-xl-3">
                             <div class="card">
-                                <img src="<?= BASE_URL ?>/assets/images/product/p-1.png" alt="" class="img-fluid ">
+                                <img src="<?= BASE_URL.'/admin/'.$product['image'] ?>" alt="" class="img-fluid ">
                                 <div class="card-body bg-light-subtle rounded-bottom text-center">
                                     <a href="product-details.html" class="text-dark fw-medium fs-18"><?= $product['name'] ?></a>
 
@@ -183,19 +183,7 @@
         </div>
     </div>
 
-    <!-- ========== Footer Start ========== -->
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> &copy; Larkon. Crafted by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a href="#" class="fw-bold footer-text" target="_blank">Techzaa</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ========== Footer End ========== -->
+
 
 </div>
 

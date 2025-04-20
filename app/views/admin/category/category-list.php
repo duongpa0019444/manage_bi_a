@@ -35,7 +35,7 @@
                                              </tr>
                                         </thead>
                                         <tbody>
-                                             
+                                             <?php foreach($categores as $categore): ?>
                                                   <tr>
                                                        <td>
                                                             <div class="form-check">
@@ -43,16 +43,21 @@
                                                                  <label class="form-check-label" for="customCheck2"></label>
                                                             </div>
                                                        </td>
-                                                       <td>1</td>
-                                                       <td>Tên danh mục</td>
+                                                       <td><?= $categore['id'] ?></td>
+                                                       <td><?= $categore['name'] ?></td>
                                                        <td>
                                                             <div class="d-flex gap-2">
-                                                                 <a href="<?= BASE_URL ?>/admin/category/edit" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                                                 <a href="<?= BASE_URL ?>/admin/category/delete" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                                 <a href="<?= BASE_URL ?>/admin/category/edit/<?= $categore['id'] ?>" class="btn btn-soft-primary btn-sm">
+                                                                      <iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon>
+                                                                 </a>
+                                                                 <a href="<?= BASE_URL ?>/admin/category/delete/<?= $categore['id'] ?>" class="btn btn-soft-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">
+                                                                      <iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon>
+                                                                 </a>
                                                             </div>
                                                        </td>
                                                   </tr>
-                                            
+                                             <?php endforeach; ?>
+
                                         </tbody>
                                    </table>
                               </div>

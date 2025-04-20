@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Core\Controller;
-use App\Models\Payment;
+use App\Models\payment as Payment;
 use App\Models\Products;
 use DateTime;
 
